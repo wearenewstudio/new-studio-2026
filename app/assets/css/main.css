@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
+
+@theme {
+  --font-sans: 'New Studio Sans', sans-serif;
+  --font-mono: 'Ubuntu Mono', monospace;
+
+  --color-background: #f4f4f4;
+  --color-body: #f4f4f4;
+  --color-foreground: #000014;
+  --color-secondary: #838391;
+  --color-primary: #0000f4;
+  --color-gray: #838391;
+}
+
+html {
+  @media (min-width: 1440px) {
+    font-size: calc(100vw / 1440 * 16);
+  }
+  @media (min-width: 1920px) {
+    font-size: calc(100vw / 1920 * 16);
+  }
+}
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* Layouts */
+/* -------------------------------- */
+/* -------------------------------- */
+.center-hero {
+  @apply pt-60 pb-40 text-center;
+}
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* Utilities */
+/* -------------------------------- */
+/* -------------------------------- */
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-none px-5;
+  }
+}
+
+.custom-grid {
+  @apply grid w-full grid-cols-12 gap-5;
+}
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* Typography */
+/* -------------------------------- */
+/* -------------------------------- */
+
+.label {
+  @apply font-mono text-sm uppercase;
+}
+
+.display {
+  @apply text-8xl;
+}
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* Animations */
+/* -------------------------------- */
+/* -------------------------------- */
+
+.hover-bg {
+  @apply bg-foreground/50 absolute top-0 left-0 z-0 h-full w-full scale-95 rounded-sm opacity-0 transition-all duration-200 ease-out group-hover:scale-100 group-hover:opacity-100;
+}
+
+.anim-box {
+  @apply transition-all duration-[400ms] ease-in-out;
+}
+
+.menu-open .anim-box-top-left {
+  @apply translate-x-[50%] translate-y-[50%] rotate-45;
+}
+
+.menu-open .anim-box-top-right {
+  @apply -translate-x-[50%] translate-y-[50%] rotate-45;
+}
+
+.menu-open .anim-box-bottom-left {
+  @apply translate-x-[50%] -translate-y-[50%] rotate-45;
+}
+
+.menu-open .anim-box-bottom-right {
+  @apply -translate-x-[50%] -translate-y-[50%] rotate-45;
+}
+
+.group:hover:not(.menu-open) .anim-box-top-left {
+  @apply translate-x-[25%] translate-y-[25%];
+}
+
+.group:hover:not(.menu-open) .anim-box-top-right {
+  @apply -translate-x-[25%] translate-y-[25%];
+}
+
+.group:hover:not(.menu-open) .anim-box-bottom-left {
+  @apply translate-x-[25%] -translate-y-[25%];
+}
+
+.group:hover:not(.menu-open) .anim-box-bottom-right {
+  @apply -translate-x-[25%] -translate-y-[25%];
+}
