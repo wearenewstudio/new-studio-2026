@@ -5,51 +5,54 @@
   >
     <div
       ref="menuTile"
-      class="bold-nav-full__tile bg-primary pointer-events-auto absolute top-0 left-0 z-1 flex h-full w-full flex-col items-center justify-center"
+      class="bold-nav-full__tile bg-primary pointer-events-auto fixed inset-0 z-1"
     >
-      <!-- Navigation links -->
-      <ul class="bold-nav-full__ul flex flex-col items-center">
-        <li
-          v-for="(link, index) in navigationLinks"
-          :key="index"
-          class="bold-nav-full__li relative -mt-4 flex items-center justify-center overflow-hidden"
-        >
-          <NuxtLink
-            :href="link.href"
-            :class="[
-              'bold-nav-full__link display relative inline-block translate-y-full rotate-[5deg] leading-tight no-underline transition-colors duration-300 ease-in-out',
-              { 'is--current text-secondary': isCurrentRoute(link.href) },
-            ]"
-            :data-link-index="index"
-            @click="handleLinkClick"
+      <!-- Navigation links - centered absolutely -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <ul class="bold-nav-full__ul flex flex-col items-center">
+          <li
+            v-for="(link, index) in navigationLinks"
+            :key="index"
+            class="bold-nav-full__li relative -mt-4 flex items-center justify-center overflow-hidden"
           >
-            <span
-              class="bold-nav-full__link-text relative block [text-shadow:0_1.1em_0]"
+            <NuxtLink
+              :href="link.href"
+              :class="[
+                'bold-nav-full__link display relative inline-block translate-y-full rotate-[5deg] leading-tight no-underline transition-colors duration-300 ease-in-out',
+                { 'is--current text-secondary': isCurrentRoute(link.href) },
+              ]"
               :data-link-index="index"
+              @click="handleLinkClick"
             >
-              {{ link.text }}
-            </span>
-          </NuxtLink>
-        </li>
-      </ul>
-    </div>
-
-    <div
-      class="pointer-events-auto absolute bottom-5 left-0 z-2 container flex w-full justify-between"
-    >
-      <div class="flex flex-col">
-        <ScrambleLink href="tel:07956123456">07956123456</ScrambleLink>
-        <ScrambleLink href="mailto:hello@wearenew.studio"
-          >hello@wearenew.studio</ScrambleLink
-        >
+              <span
+                class="bold-nav-full__link-text relative block [text-shadow:0_1.1em_0]"
+                :data-link-index="index"
+              >
+                {{ link.text }}
+              </span>
+            </NuxtLink>
+          </li>
+        </ul>
       </div>
-      <div class="flex flex-col items-end text-right">
-        <ScrambleLink href="https://www.instagram.com/wearenewstudio"
-          >Instagram</ScrambleLink
-        >
-        <ScrambleLink href="https://www.linkedin.com/company/newstudio"
-          >LinkedIn</ScrambleLink
-        >
+
+      <!-- Contact info at bottom -->
+      <div
+        class="absolute bottom-5 left-0 container flex w-full justify-between"
+      >
+        <div class="flex flex-col">
+          <ScrambleLink href="tel:07956123456">07956123456</ScrambleLink>
+          <ScrambleLink href="mailto:hello@wearenew.studio"
+            >hello@wearenew.studio</ScrambleLink
+          >
+        </div>
+        <div class="flex flex-col items-end text-right">
+          <ScrambleLink href="https://www.instagram.com/wearenewstudio"
+            >Instagram</ScrambleLink
+          >
+          <ScrambleLink href="https://www.linkedin.com/company/newstudio"
+            >LinkedIn</ScrambleLink
+          >
+        </div>
       </div>
     </div>
   </div>

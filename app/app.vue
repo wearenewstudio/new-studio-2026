@@ -1,5 +1,7 @@
 <template>
   <div>
+    <VideoModal />
+    <CustomCursor />
     <Navbar />
     <NuxtLayout>
       <NuxtPage />

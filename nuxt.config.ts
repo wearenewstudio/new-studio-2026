@@ -3,10 +3,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/fonts', '@nuxtjs/sanity'],
+  modules: ['@nuxt/fonts', '@nuxtjs/sanity', '@nuxt/image'],
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ['@sanity/visual-editing'],
+    },
   },
   fonts: {
     families: [
@@ -28,5 +31,10 @@ export default defineNuxtConfig({
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: 'production',
     apiVersion: '2025-01-01',
+  },
+  image: {
+    sanity: {
+      projectId: process.env.SANITY_PROJECT_ID as string,
+    },
   },
 });
