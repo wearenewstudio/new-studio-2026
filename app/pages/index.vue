@@ -127,7 +127,7 @@ console.log(home);
       </NuxtLink>
     </div>
 
-    <ScrambleButton href="/work">View All Work</ScrambleButton>
+    <MagneticButton text="View All Work" href="/work" />
   </section>
 
   <SectionReel :reel="home?.reel" />

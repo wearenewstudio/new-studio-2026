@@ -9,8 +9,6 @@
         </p>
         <MagneticButton
           text="Discover our showreel"
-          :magnetic-strength="50"
-          :magnetic-strength-inner="25"
           :playbackId="props.reel.video.asset.playbackId"
           :preview="`https://image.mux.com/${props.reel.video.asset.playbackId}/animated.gif`"
         />
