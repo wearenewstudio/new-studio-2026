@@ -3,7 +3,11 @@
     <nav
       class="bg-foreground/40 text-background border-background/30 z-50 col-start-5 col-end-9 flex items-center justify-between rounded-3xl border px-5 py-3 backdrop-blur-lg"
     >
-      <NuxtLink href="/" aria-label="Go to home" @click.prevent="handleLogoClick">
+      <NuxtLink
+        href="/"
+        aria-label="Go to home"
+        @click.prevent="handleLogoClick"
+      >
         <LogoIcon class="w-21" />
       </NuxtLink>
 
@@ -67,7 +71,17 @@ const handleMenuToggle = () => {
 
 const handleLogoClick = () => {
   if (route.path === '/') {
-    // If we're already at home, close the menu if it's open
+    // If we're already at home, scroll to top and close the menu if it's open
+    const { $lenis } = useNuxtApp();
+    const lenis = $lenis as any;
+
+    if (lenis) {
+      lenis.scrollTo(0, { duration: 1.2 });
+    } else {
+      // Fallback to native smooth scroll if Lenis is not available
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     if (isMenuOpen.value) {
       closeMenu();
     }

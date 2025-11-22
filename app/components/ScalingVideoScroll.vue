@@ -139,13 +139,7 @@ onUnmounted(() => {
     <section
       class="relative flex min-h-screen flex-col items-center justify-center gap-12 px-[5vw] pt-[25vh] pb-[20vh] text-center"
     >
-      <span v-if="eyebrow" class="label">
-        {{ eyebrow }}
-      </span>
-
-      <h1 class="display whitespace-pre-line">
-        {{ title }}
-      </h1>
+      <SectionTitle :title="title" :label="eyebrow" />
 
       <div class="relative w-[20em] rounded-3xl">
         <div class="pb-[56.25%]"></div>

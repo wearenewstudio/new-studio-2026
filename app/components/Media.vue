@@ -90,34 +90,32 @@ const hasMedia = computed(() => {
 </script>
 
 <template>
-  <div v-if="hasMedia" :class="props.class">
-    <!-- Image rendering -->
-    <NuxtImg
-      v-if="mediaType === 'image' && imageSrc"
-      :src="imageSrc as any"
-      :alt="imageAlt"
-      :width="width"
-      :height="height"
-      :loading="loading"
-      :placeholder="imagePlaceholder"
-      fit="cover"
-      class="h-full w-full rounded-[inherit] object-cover"
-    />
+  <!-- Image rendering -->
+  <NuxtImg
+    v-if="mediaType === 'image' && imageSrc"
+    :src="imageSrc as any"
+    :alt="imageAlt"
+    :width="width"
+    :height="height"
+    :loading="loading"
+    :placeholder="imagePlaceholder"
+    fit="cover"
+    class="h-full w-full rounded-[inherit] object-cover"
+  />
 
-    <!-- Mux Video rendering -->
-    <mux-player
-      v-else-if="mediaType === 'muxVideo' && videoPlaybackId"
-      :playback-id="videoPlaybackId"
-      :autoplay="autoplay"
-      :muted="muted"
-      :loop="loop"
-      :playsinline="playsinline"
-      :webkit-playsinline="playsinline"
-      :controls="controls"
-      :disable-cookies="true"
-      :disable-tracking="true"
-      :preload="true"
-      class="h-full w-full"
-    />
-  </div>
+  <!-- Mux Video rendering -->
+  <mux-player
+    v-else-if="mediaType === 'muxVideo' && videoPlaybackId"
+    :playback-id="videoPlaybackId"
+    :autoplay="autoplay"
+    :muted="muted"
+    :loop="loop"
+    :playsinline="playsinline"
+    :webkit-playsinline="playsinline"
+    :controls="controls"
+    :disable-cookies="true"
+    :disable-tracking="true"
+    :preload="true"
+    class="h-full w-full"
+  />
 </template>

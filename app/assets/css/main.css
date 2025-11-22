@@ -92,6 +92,10 @@ mux-player::part(control-bar bottom) {
   @apply inline-block w-57;
 }
 
+.line {
+  @apply border-gray border-b;
+}
+
 /* -------------------------------- */
 /* -------------------------------- */
 /* Typography */
