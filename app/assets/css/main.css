@@ -14,12 +14,12 @@
 }
 
 html {
-  @media (min-width: 1440px) {
-    font-size: calc(100vw / 1440 * 16);
-  }
   @media (min-width: 1920px) {
     font-size: calc(100vw / 1920 * 16);
   }
+  /* @media (min-width: 1920px) {
+    font-size: calc(100vw / 1920 * 16);
+  } */
 }
 
 :root::selection {

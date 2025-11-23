@@ -40,7 +40,7 @@
         </button>
       </div>
     </nav>
-    <Menu />
+    <NavMenu />
   </header>
 </template>
 

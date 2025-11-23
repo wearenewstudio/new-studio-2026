@@ -33,6 +33,11 @@ export default defineNuxtPlugin(nuxtApp => {
     scrollTrigger.update();
   });
 
+  // Scroll to top on page navigation
+  nuxtApp.hook('page:finish', () => {
+    lenis.scrollTo(0, { immediate: true });
+  });
+
   // Make lenis available globally
   return {
     provide: {

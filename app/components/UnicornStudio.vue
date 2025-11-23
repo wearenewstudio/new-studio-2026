@@ -141,15 +141,6 @@ const initializeScene = () => {
     return;
   }
 
-  console.log(
-    'Initializing Unicorn Studio scene with element:',
-    elementId.value,
-    {
-      width: rect.width,
-      height: rect.height,
-    }
-  );
-
   UnicornStudio.addScene({
     elementId: elementId.value,
     fps: props.fps,
@@ -166,7 +157,6 @@ const initializeScene = () => {
   })
     .then((initializedScene: any) => {
       scene = initializedScene;
-      console.log('Unicorn Studio scene initialized:', initializedScene);
     })
     .catch((err: Error) => {
       console.error('Failed to initialize Unicorn Studio scene:', err);
