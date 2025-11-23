@@ -40,17 +40,17 @@
         class="absolute bottom-5 left-0 container flex w-full justify-between"
       >
         <div class="flex flex-col">
-          <ScrambleLink href="tel:07956123456">07956123456</ScrambleLink>
-          <ScrambleLink href="mailto:hello@wearenew.studio"
-            >hello@wearenew.studio</ScrambleLink
+          <LinkScramble href="tel:07956123456">07956123456</LinkScramble>
+          <LinkScramble href="mailto:hello@wearenew.studio"
+            >hello@wearenew.studio</LinkScramble
           >
         </div>
         <div class="flex flex-col items-end text-right">
-          <ScrambleLink href="https://www.instagram.com/wearenewstudio"
-            >Instagram</ScrambleLink
+          <LinkScramble href="https://www.instagram.com/wearenewstudio"
+            >Instagram</LinkScramble
           >
-          <ScrambleLink href="https://www.linkedin.com/company/newstudio"
-            >LinkedIn</ScrambleLink
+          <LinkScramble href="https://www.linkedin.com/company/newstudio"
+            >LinkedIn</LinkScramble
           >
         </div>
       </div>

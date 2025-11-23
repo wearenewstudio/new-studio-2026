@@ -7,7 +7,7 @@
         <p class="heading-1 text-background whitespace-pre-line">
           {{ props.reel.title }}
         </p>
-        <MagneticButton
+        <ButtonMagnetic
           text="Discover our showreel"
           :playbackId="props.reel.video.asset.playbackId"
           :preview="`https://image.mux.com/${props.reel.video.asset.playbackId}/animated.gif`"

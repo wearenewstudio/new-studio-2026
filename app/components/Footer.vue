@@ -8,7 +8,7 @@
         class="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center gap-15 text-center"
       >
         <h1 class="display">Build Your New<br />Future With Us</h1>
-        <MagneticButton text="Start a Project" href="/contact" />
+        <ButtonMagnetic text="Start a Project" href="/contact" />
       </div>
 
       <div
@@ -18,18 +18,18 @@
           <p class="label">© New Studio Partners 2025</p>
         </div>
         <div class="col-10 flex justify-end">
-          <ScrambleLink href="https://www.instagram.com/wearenewstudio"
-            >Instagram</ScrambleLink
+          <LinkScramble href="https://www.instagram.com/wearenewstudio"
+            >Instagram</LinkScramble
           >
         </div>
         <div class="col-11 flex justify-end">
-          <ScrambleLink href="https://www.linkedin.com/company/newstudio"
-            >LinkedIn</ScrambleLink
+          <LinkScramble href="https://www.linkedin.com/company/newstudio"
+            >LinkedIn</LinkScramble
           >
         </div>
         <div class="col-12 flex justify-end">
-          <ScrambleLink href="https://github.com/wearenewstudio"
-            >GitHub</ScrambleLink
+          <LinkScramble href="https://github.com/wearenewstudio"
+            >GitHub</LinkScramble
           >
         </div>
         <div class=""></div>

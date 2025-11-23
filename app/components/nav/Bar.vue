@@ -12,9 +12,9 @@
       </NuxtLink>
 
       <div class="flex items-center gap-1">
-        <ScrambleLink href="/work">Work</ScrambleLink>
-        <ScrambleLink href="/about">About</ScrambleLink>
-        <ScrambleLink href="/contact">Contact</ScrambleLink>
+        <LinkScramble href="/work">Work</LinkScramble>
+        <LinkScramble href="/about">About</LinkScramble>
+        <LinkScramble href="/contact">Contact</LinkScramble>
 
         <button
           :aria-expanded="isMenuOpen"

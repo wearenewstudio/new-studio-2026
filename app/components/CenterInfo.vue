@@ -12,7 +12,7 @@
         v-if="truncate && text.length > truncateLength"
         class="mt-15 flex w-full justify-center"
       >
-        <MagneticButton
+        <ButtonMagnetic
           :text="isTruncated ? 'Read more' : 'Read less'"
           :on-click="toggleTruncation"
         />

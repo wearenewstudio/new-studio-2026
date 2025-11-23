@@ -40,7 +40,7 @@
         </NuxtLink>
       </div>
 
-      <MagneticButton text="View All Work" href="/work" />
+      <ButtonMagnetic text="View All Work" href="/work" />
     </section>
 
     <SectionReel :reel="home?.reel" />
