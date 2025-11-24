@@ -37,9 +37,9 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   class: '',
-  autoplay: false,
-  muted: false,
-  loop: false,
+  autoplay: true,
+  muted: true,
+  loop: true,
   playsinline: true,
   controls: false,
   loading: 'lazy',
@@ -68,32 +68,13 @@ const imageAlt = computed(() => {
 const imagePlaceholder = computed(() => {
   return props.media?.image?.asset?.metadata?.lqip;
 });
-
-const hasMedia = computed(() => {
-  if (!props.media) return false;
-
-  if (mediaType.value === 'image') {
-    return !!imageSrc.value;
-  }
-
-  if (mediaType.value === 'muxVideo') {
-    return !!videoPlaybackId.value;
-  }
-
-  // For regular video type, check if video asset exists
-  if (mediaType.value === 'video') {
-    return !!props.media.video?.asset;
-  }
-
-  return false;
-});
 </script>
 
 <template>
   <!-- Image rendering -->
   <NuxtImg
     v-if="mediaType === 'image' && imageSrc"
-    :src="imageSrc as any"
+    :src="`${imageSrc}?fm=webp`"
     :alt="imageAlt"
     :width="width"
     :height="height"

@@ -16,6 +16,8 @@
       :label="'Case Study'"
       :truncate="true"
     />
+    <ProjectCase :data="project?.caseStudy" />
+    <ProjectNext :data="project?.next" />
   </div>
 </template>
 
@@ -36,9 +38,14 @@ const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
         asset->,
         alt
       },
-      video {
-        asset->,
-        alt
+      muxVideo {
+        asset-> {
+          playbackId,
+          assetId,
+          filename,
+          status,
+          duration
+        }
       }
     },
     info {
@@ -85,15 +92,14 @@ const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
               },
               alt
             },
-            video {
+            muxVideo {
               asset-> {
-                _id,
-                _type,
-                _ref,
-                url,
-                metadata
-              },
-              alt
+                playbackId,
+                assetId,
+                filename,
+                status,
+                duration
+              }
             }
           },
           text
@@ -119,15 +125,14 @@ const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
               },
               alt
             },
-            video {
+            muxVideo {
               asset-> {
-                _id,
-                _type,
-                _ref,
-                url,
-                metadata
-              },
-              alt
+                playbackId,
+                assetId,
+                filename,
+                status,
+                duration
+              }
             }
           },
           text
@@ -153,15 +158,14 @@ const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
               },
               alt
             },
-            video {
+            muxVideo {
               asset-> {
-                _id,
-                _type,
-                _ref,
-                url,
-                metadata
-              },
-              alt
+                playbackId,
+                assetId,
+                filename,
+                status,
+                duration
+              }
             }
           },
           text
@@ -187,15 +191,14 @@ const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
               },
               alt
             },
-            video {
+            muxVideo {
               asset-> {
-                _id,
-                _type,
-                _ref,
-                url,
-                metadata
-              },
-              alt
+                playbackId,
+                assetId,
+                filename,
+                status,
+                duration
+              }
             }
           },
           text
@@ -219,18 +222,41 @@ const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
               },
               alt
             },
-            video {
+            muxVideo {
               asset-> {
-                _id,
-                _type,
-                _ref,
-                url,
-                metadata
-              },
-              alt
+                playbackId,
+                assetId,
+                filename,
+                status,
+                duration
+              }
             }
           },
           text
+        }
+      }
+    },
+    "next": coalesce(
+      *[_type == "project" && _createdAt < ^._createdAt] | order(_createdAt desc)[0],
+      *[_type == "project"] | order(_createdAt desc)[0]
+    ) {
+      title,
+      subtitle,
+      slug,
+      thumbnail {
+        mediaType,
+        image {
+          asset->,
+          alt
+        },
+        muxVideo {
+          asset-> {
+            playbackId,
+            assetId,
+            filename,
+            status,
+            duration
+          }
         }
       }
     }
@@ -239,6 +265,4 @@ const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0] {
 const { data: project } = await useSanityQuery<SanityDocument>(PROJECT_QUERY, {
   slug: slug as string,
 });
-
-console.log(project);
 </script>

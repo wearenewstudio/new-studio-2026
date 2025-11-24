@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/fonts', '@nuxtjs/sanity', '@nuxt/image'],
   css: ['~/assets/css/main.css'],
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => tag === 'mux-player',
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
