@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <div class="custom-grid py-40">
+    <div class="custom-grid pt-40 pb-20">
       <div class="col-start-1 col-end-5 flex flex-col gap-15">
         <h1 class="heading-1">{{ props.title }}</h1>
         <h2 class="heading-2 text-secondary whitespace-pre-line">
@@ -18,8 +18,15 @@
         <ProjectCol :title="'Team'" :list="props.team" />
       </div>
     </div>
-    <div class="aspect-video overflow-hidden rounded-3xl">
-      <Media :media="props.media" />
+    <div
+      data-parallax="trigger"
+      data-parallax-start="-10"
+      data-parallax-end="30"
+      class="aspect-video overflow-hidden rounded-3xl"
+    >
+      <div class="scale-120" data-parallax="target">
+        <Media :media="props.media" />
+      </div>
     </div>
   </section>
 </template>

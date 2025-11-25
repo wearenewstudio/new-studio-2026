@@ -6,7 +6,7 @@
       gridRow: gridRow,
     }"
   >
-    <div class="h-auto w-full">
+    <div class="h-auto w-full overflow-hidden rounded-3xl">
       <Media v-if="media" :media="media" class="h-fit w-full" />
     </div>
     <p

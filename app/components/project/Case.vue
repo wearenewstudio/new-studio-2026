@@ -12,7 +12,7 @@
               />
             </div>
             <div class="hidden sm:block">
-              <div class="custom-grid">
+              <div class="custom-grid gap-y-5">
                 <!-- Text (if reverse) -->
                 <div
                   v-if="item.reverse && item.media?.text"
@@ -29,7 +29,7 @@
 
                 <!-- Media -->
                 <div
-                  class="flex flex-col gap-5"
+                  class="flex flex-col gap-5 overflow-hidden rounded-3xl"
                   :style="{
                     gridColumn: getSingleImageMediaGridColumn(
                       item.layout,
@@ -72,7 +72,7 @@
               />
             </div>
             <div class="hidden sm:block">
-              <div class="custom-grid">
+              <div class="custom-grid gap-y-5">
                 <ProjectMediaWithText
                   :media="item.media?.[item.reverse ? 1 : 0]?.media"
                   :text="item.media?.[item.reverse ? 1 : 0]?.text"
@@ -104,7 +104,7 @@
               />
             </div>
             <div class="hidden sm:block">
-              <div class="custom-grid">
+              <div class="custom-grid gap-y-5">
                 <ProjectMediaWithText
                   v-for="(m, i) in item.media"
                   :key="`desktop-${i}`"
@@ -134,7 +134,7 @@
               />
             </div>
             <div class="hidden sm:block">
-              <div class="custom-grid">
+              <div class="custom-grid gap-y-5">
                 <ProjectMediaWithText
                   :media="item.top?.media"
                   :text="item.top?.text"
@@ -171,7 +171,7 @@
               />
             </div>
             <div class="hidden sm:block">
-              <div class="custom-grid">
+              <div class="custom-grid gap-y-5">
                 <ProjectMediaWithText
                   :media="item.top?.media"
                   :text="item.top?.text"
@@ -227,7 +227,7 @@
               />
             </div>
             <div class="hidden sm:block">
-              <div class="custom-grid">
+              <div class="custom-grid gap-y-5">
                 <ProjectMediaWithText
                   v-for="(m, i) in item.media"
                   :key="`desktop-${i}`"

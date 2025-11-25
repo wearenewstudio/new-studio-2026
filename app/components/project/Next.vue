@@ -2,13 +2,20 @@
   <section class="container pt-60 pb-40">
     <NuxtLink
       :to="`/work/${props.data?.slug?.current}`"
-      data-cursor="View Project"
+      data-cursor="Explore Case Study"
     >
       <SectionTitle :title="data?.title" :label="'Next Project'" />
 
       <div class="custom-grid">
-        <div class="col-start-4 col-end-10 rounded-3xl">
-          <Media :media="data?.thumbnail" />
+        <div
+          data-parallax="trigger"
+          data-parallax-start="-10"
+          data-parallax-end="10"
+          class="col-start-4 col-end-10 overflow-hidden rounded-3xl"
+        >
+          <div class="origin-center scale-120" data-parallax="target">
+            <Media :media="data?.thumbnail" />
+          </div>
         </div>
       </div>
     </NuxtLink>

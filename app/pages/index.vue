@@ -22,7 +22,7 @@
             index === 2 ? 'col-start-1 col-end-13 md:col-end-7' : '',
             index === 3 ? 'col-start-1 col-end-13 md:col-start-8' : '',
           ]"
-          data-cursor="View Project"
+          data-cursor="Explore Case Study"
         >
           <div class="aspect-3/2 w-full overflow-hidden rounded-3xl">
             <Media

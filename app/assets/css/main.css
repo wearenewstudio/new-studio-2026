@@ -14,8 +14,8 @@
 }
 
 html {
-  @media (min-width: 1920px) {
-    font-size: calc(100vw / 1920 * 16);
+  @media (min-width: 1280px) {
+    font-size: calc(100vw / 1280 * 14);
   }
   /* @media (min-width: 1920px) {
     font-size: calc(100vw / 1920 * 16);
@@ -100,6 +100,10 @@ mux-player::part(control-bar bottom) {
   @apply border-gray border-b;
 }
 
+hr {
+  @apply border-secondary/40 border-b;
+}
+
 /* -------------------------------- */
 /* -------------------------------- */
 /* Typography */
@@ -115,7 +119,7 @@ mux-player::part(control-bar bottom) {
 }
 
 .heading-1 {
-  @apply text-6xl font-normal;
+  @apply text-6xl leading-14 font-normal;
 }
 
 .heading-2 {

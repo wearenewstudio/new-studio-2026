@@ -6,6 +6,7 @@
     <footer data-footer-parallax-inner class="h-dvh w-full">
       <div
         class="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center gap-15 text-center"
+        data-footer-parallax-dark
       >
         <h1 class="display">Build Your New<br />Future With Us</h1>
         <ButtonMagnetic text="Start a Project" href="/contact" />

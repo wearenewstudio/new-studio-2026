@@ -3,7 +3,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/fonts', '@nuxtjs/sanity', '@nuxt/image'],
+  modules: [
+    '@nuxt/fonts',
+    '@nuxtjs/sanity',
+    '@nuxt/image',
+    'nuxt-lottie',
+  ],
   css: ['~/assets/css/main.css'],
   vue: {
     compilerOptions: {
