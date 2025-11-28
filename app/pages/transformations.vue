@@ -30,7 +30,7 @@
         </div>
       </section>
       <section
-        v-for="transformation in transformations?.list"
+        v-for="(transformation, index) in transformations?.list"
         :key="transformation._id"
         class="bg-body relative z-2"
         data-snap-section
@@ -41,9 +41,12 @@
             <div
               class="col-start-1 col-end-4 flex flex-col justify-between py-20"
             >
-              <h1 class="heading-1 whitespace-pre-line">
-                {{ transformation.title }}
-              </h1>
+              <div class="flex flex-col gap-4">
+                <p class="label">{{ index + 1 }}</p>
+                <h1 class="heading-1 whitespace-pre-line">
+                  {{ transformation.title }}
+                </h1>
+              </div>
               <p class="medium indent-10 whitespace-pre-line">
                 {{ transformation.description }}
               </p>
@@ -226,6 +229,4 @@ onMounted(() => {
     ctx.revert();
   });
 });
-
-console.log(transformations);
 </script>
