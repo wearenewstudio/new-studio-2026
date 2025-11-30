@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="root">
     <VideoModal />
     <CustomCursor />
     <NavBar />

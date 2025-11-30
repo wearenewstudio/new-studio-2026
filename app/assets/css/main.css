@@ -140,6 +140,45 @@ hr {
 /* -------------------------------- */
 /* -------------------------------- */
 
+/* Page Transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 1.5s cubic-bezier(0.87, 0, 0.13, 1);
+  background-color: var(--color-background);
+}
+
+.page-enter-active {
+  position: relative;
+  z-index: 10;
+}
+
+.page-leave-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  transform-origin: 50% 50%;
+}
+
+.page-leave-from {
+  transform: scale(1);
+  border-radius: 0;
+}
+
+.page-leave-to {
+  transform: scale(0.9);
+  border-radius: 1.5rem;
+}
+
+.page-enter-from {
+  clip-path: inset(100% 0 0 0);
+}
+
+.page-enter-to {
+  clip-path: inset(0 0 0 0);
+}
+
 .hover-bg {
   @apply bg-foreground/50 absolute top-0 left-0 z-0 h-full w-full scale-95 rounded-sm opacity-0 transition-all duration-200 ease-out group-hover:scale-100 group-hover:opacity-100;
 }

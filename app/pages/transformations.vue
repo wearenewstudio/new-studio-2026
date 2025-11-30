@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <section
       class="custom-grid container h-[90dvh] pt-40 pb-20"
       data-snap-section
@@ -75,7 +75,7 @@
         </div>
       </section>
     </section>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">

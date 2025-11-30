@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <ProjectHero
       :title="project?.title"
       :subtitle="project?.subtitle"
@@ -18,7 +18,7 @@
     />
     <ProjectCase :data="project?.caseStudy" />
     <ProjectNext :data="project?.next" />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">

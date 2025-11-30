@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <ScalingVideoScroll
       :video-src="home?.hero?.media?.muxVideo?.asset?.playbackId"
       :title="home?.hero?.title"
@@ -46,7 +46,7 @@
     <SectionReel :reel="home?.reel" />
 
     <SectionExpertise />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">

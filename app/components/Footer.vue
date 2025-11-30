@@ -1,9 +1,9 @@
 <template>
-  <div
+  <footer
     data-footer-parallax
     class="text-background custom-rounded relative overflow-hidden"
   >
-    <footer data-footer-parallax-inner class="h-dvh w-full">
+    <div data-footer-parallax-inner class="h-dvh w-full">
       <div
         class="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center gap-15 text-center"
         data-footer-parallax-dark
@@ -43,8 +43,8 @@
         :fps="60"
         container-class="w-full h-full"
       />
-    </footer>
-  </div>
+    </div>
+  </footer>
 </template>
 
 <style scoped>

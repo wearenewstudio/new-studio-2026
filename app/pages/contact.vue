@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <section class="custom-grid container pt-40 pb-20">
       <div class="col-start-1 col-end-5 flex flex-col gap-15">
         <h1 class="heading-1 whitespace-pre-line">
@@ -48,7 +48,7 @@
         >
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
