@@ -1,7 +1,7 @@
 <template>
   <main>
     <section
-      class="custom-grid container h-[90dvh] pt-40 pb-20"
+      class="custom-grid container h-[90dvh] pt-30 pb-20"
       data-snap-section
     >
       <div class="col-start-1 col-end-5 flex flex-col gap-15">
@@ -11,7 +11,13 @@
       </div>
       <div class="col-8 flex h-fit justify-end gap-2">
         <p class="label">Scroll</p>
-        <Lottie name="mouse" width="1rem" height="auto" :no-margin="true" />
+        <Lottie
+          name="mouse"
+          width="1rem"
+          height="auto"
+          :no-margin="true"
+          class="lottie-icon"
+        />
       </div>
     </section>
 
@@ -75,6 +81,33 @@
         </div>
       </section>
     </section>
+
+    <section class="bg-body pt-20 pb-40">
+      <SectionTitle
+        :title="transformations?.capabilities?.title"
+        :label="transformations?.capabilities?.label"
+      />
+
+      <div class="container flex flex-col gap-5">
+        <div
+          v-for="row in transformations?.capabilities?.rows"
+          :key="row._key"
+          class="custom-grid gap-y-6"
+        >
+          <hr class="col-start-1 col-end-13" />
+          <div class="col-start-1 col-end-4">
+            <p class="heading-1">
+              {{ row.title }}
+            </p>
+          </div>
+          <div class="col-start-5 col-end-13 -mt-2 flex flex-col gap-2">
+            <p class="medium" v-for="item in row.list" :key="item._key">
+              {{ item }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -125,7 +158,8 @@ const TRANSFORMATIONS_QUERY = groq`*[_type == "transformations"][0]{
         }
         }
     }
-  }
+  },
+  capabilities
 }`;
 
 const { data: transformations } = await useSanityQuery<SanityDocument>(
@@ -160,6 +194,21 @@ onMounted(() => {
             y: '100vh',
             ease: 'none',
           });
+        } else if (index === elements.length - 1) {
+          $gsap.fromTo(
+            el,
+            { y: '-100vh' },
+            {
+              y: '0vh',
+              ease: 'none',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'center center',
+                scrub: true,
+              },
+            }
+          );
         } else {
           $gsap.fromTo(
             el,
@@ -230,3 +279,13 @@ onMounted(() => {
   });
 });
 </script>
+
+<style scoped>
+:deep(.lottie-icon path[stroke]:not([stroke='none'])) {
+  stroke: currentColor !important;
+}
+
+:deep(.lottie-icon path[fill]:not([fill='none'])) {
+  fill: currentColor !important;
+}
+</style>

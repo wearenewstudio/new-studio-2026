@@ -43,8 +43,8 @@
       </div>
       <div class="col-start-5 col-end-13 flex flex-col gap-4">
         <p class="label">Location</p>
-        <a class="heading-2" href="mailto:hello@newstudio.com"
-          >hello@newstudio.com</a
+        <a class="heading-2" href="mailto:hello@wearenew.studio"
+          >hello@wearenew.studio</a
         >
       </div>
     </section>

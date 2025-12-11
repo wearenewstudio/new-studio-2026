@@ -45,12 +45,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const { isMenuOpen, toggleMenu, closeMenu } = useMenu();
 const isAnimating = ref(false);
 const route = useRoute();
 const router = useRouter();
+
+watch(
+  () => route.fullPath,
+  () => {
+    if (isMenuOpen.value) {
+      closeMenu();
+    }
+  }
+);
 
 const boxes = [
   { className: 'anim-box-top-left top-0 left-0' }, // top-left

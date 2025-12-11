@@ -29,7 +29,7 @@ export const useGlobalParallax = () => {
         isTablet: '(max-width:991px)',
         isDesktop: '(min-width:992px)',
       },
-      (context) => {
+      context => {
         const { isMobile, isMobileLandscape, isTablet } =
           context.conditions as {
             isMobile: boolean;
@@ -42,7 +42,7 @@ export const useGlobalParallax = () => {
             '[data-parallax="trigger"]'
           );
 
-          triggers.forEach((trigger) => {
+          triggers.forEach(trigger => {
             // Check if this trigger has to be disabled on smaller breakpoints
             const disable = trigger.getAttribute('data-parallax-disable');
             if (
@@ -85,20 +85,34 @@ export const useGlobalParallax = () => {
               trigger.getAttribute('data-parallax-scroll-end') || 'bottom top';
             const scrollEnd = `clamp(${scrollEndRaw})`;
 
-            gsap.fromTo(
-              target,
-              { [prop]: startVal },
-              {
-                [prop]: endVal,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger,
-                  start: scrollStart,
-                  end: scrollEnd,
-                  scrub,
-                },
-              }
+            // Get opacity values
+            const opacityStartAttr = trigger.getAttribute(
+              'data-parallax-opacity-start'
             );
+            const opacityEndAttr = trigger.getAttribute(
+              'data-parallax-opacity-end'
+            );
+
+            const fromVars: any = { [prop]: startVal };
+            const toVars: any = {
+              [prop]: endVal,
+              ease: 'none',
+              scrollTrigger: {
+                trigger,
+                start: scrollStart,
+                end: scrollEnd,
+                scrub,
+              },
+            };
+
+            if (opacityStartAttr !== null || opacityEndAttr !== null) {
+              fromVars.opacity =
+                opacityStartAttr !== null ? parseFloat(opacityStartAttr) : 1;
+              toVars.opacity =
+                opacityEndAttr !== null ? parseFloat(opacityEndAttr) : 1;
+            }
+
+            gsap.fromTo(target, fromVars, toVars);
           });
         });
 
@@ -119,4 +133,3 @@ export const useGlobalParallax = () => {
     cleanupGlobalParallax,
   };
 };
-
